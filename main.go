@@ -27,7 +27,7 @@ import (
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin_translation"  // 翻译
 
 	// 娱乐类
-	// _ "github.com/FloatTech/ZeroBot-Plugin/plugin_wtf"    // 鬼东西
+        _ "github.com/FloatTech/ZeroBot-Plugin/plugin_wtf"    // 鬼东西
 	_ "github.com/FloatTech/ZeroBot-Plugin-Gif"                 // 制图
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin_ai_false"     // 服务器监控
 	_ "github.com/FloatTech/ZeroBot-Plugin/plugin_book_review"  // 哀伤雪刃吧推书记录
@@ -97,7 +97,7 @@ func init() {
 	// 直接写死 AccessToken 时，请更改下面第二个参数
 	token = flag.String("t", "", "Set AccessToken of WSClient.")
 	// 直接写死 URL 时，请更改下面第二个参数
-	url = flag.String("u", "ws://127.0.0.1:6700", "Set Url of WSClient.")
+	url = flag.String("u", "ws://BOT-CQGHTTP:6600", "Set Url of WSClient.")
 
 	flag.Parse()
 	if *h {
@@ -153,12 +153,12 @@ func main() {
 		})
 	zero.RunAndBlock(
 		zero.Config{
-			NickName:      []string{"椛椛", "ATRI", "atri", "亚托莉", "アトリ"},
+			NickName:      []string{"Lisa", "莉萨", "atri", "亚托莉", "アトリ"},
 			CommandPrefix: "/",
 			// SuperUsers 某些功能需要主人权限，可通过以下两种方式修改
-			// "12345678", "87654321"：通过代码写死的方式添加主人账号
+			// "2594133825", "87654321"：通过代码写死的方式添加主人账号
 			// flag.Args()：通过命令行参数的方式添加主人账号，无需修改下方任何代码
-			SuperUsers: append([]string{"12345678", "87654321"}, flag.Args()...),
+			SuperUsers: append([]string{"2594133825", "87654321"}, flag.Args()...),
 			Driver:     []zero.Driver{driver.NewWebSocketClient(*url, *token)},
 		},
 	)
